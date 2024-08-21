@@ -13,7 +13,12 @@ const routes = [
   },
   {
     method: "POST",
-    url: "/api/product",
+    url: "/api/productSearch",
+    handler: productController.search,
+  },
+  {
+    method: "POST",
+    url: "/api/productAdd",
     handler: productController.add,
   },
   {

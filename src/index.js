@@ -2,13 +2,10 @@ const fastify = require("fastify")({
   logger: true,
 });
 
-// bring in routes
 const routes = require("./routes");
 
-// db
 const mongoose = require("mongoose");
 
-// db connection
 mongoose
   .connect(
     "mongodb+srv://admin:7ALqepKHjOCgzs9o@cluster0.c07xxyr.mongodb.net/test?retryWrites=true&w=majority",
@@ -21,7 +18,6 @@ routes.forEach((route) => {
   fastify.route(route);
 });
 
-// starting server
 const start = async () => {
   try {
     await fastify.listen(3000);
