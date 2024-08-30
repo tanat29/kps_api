@@ -37,10 +37,7 @@ const productSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  product_id: {
-    type: String,
-    required: true,
-  },
+
   promotion: {
     type: String,
     required: true,

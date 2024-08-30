@@ -3,19 +3,25 @@ const productController = require("../controllers/productController");
 const routes = [
   {
     method: "GET",
+    url: "/",
+    handler: productController.get,
+  },
+  {
+    method: "GET",
     url: "/api/product",
     handler: productController.get,
+  },
+  {
+    method: "POST",
+    url: "/api/product",
+    handler: productController.search,
   },
   {
     method: "GET",
     url: "/api/product/:id",
     handler: productController.getById,
   },
-  {
-    method: "POST",
-    url: "/api/product-search",
-    handler: productController.search,
-  },
+
   {
     method: "POST",
     url: "/api/productAdd",

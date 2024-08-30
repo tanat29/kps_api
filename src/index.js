@@ -3,8 +3,18 @@ const fastify = require("fastify")({
 });
 
 const routes = require("./routes");
-
+const cors = require("@fastify/cors");
 const mongoose = require("mongoose");
+
+const urls = [
+  "https://66caa8ac26803894f98e09e5--effervescent-druid-c43acb.netlify.app/assets/untitled.glb",
+];
+
+fastify.register(cors, {
+  origin: urls,
+  methods: ["GET", "POST"],
+  credentials: true,
+});
 
 mongoose
   .connect(

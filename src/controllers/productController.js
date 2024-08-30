@@ -6,7 +6,7 @@ exports.get = async (req, reply) => {
   try {
     //{ name: { $regex: "5" } }
     const products = await Product.find();
-    return products;
+    return { size: products.length, data: products };
   } catch (error) {
     throw error;
   }
@@ -14,9 +14,8 @@ exports.get = async (req, reply) => {
 
 exports.search = async (req, reply) => {
   try {
-    //{ name: { $regex: "5" } }
     const products = await Product.find({ name: { $regex: req.body.name } });
-    return products;
+    return { size: products.length, data: products };
   } catch (error) {
     throw error;
   }
