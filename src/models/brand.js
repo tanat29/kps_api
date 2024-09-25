@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const categorySchema = new mongoose.Schema({
+const brandSchema = new mongoose.Schema({
   dateTime: {
     type: Date,
     default: Date.now(),
@@ -15,4 +15,4 @@ const categorySchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("category", categorySchema);
+module.exports = mongoose.model("brand", brandSchema);

@@ -1,22 +1,8 @@
-const Product = require("../models/product");
+const Product = require("../models/product_new");
 
 exports.get = async (req, reply) => {
   try {
-    //{ name: { $regex: "5" } }
-    const products = await Product.find().sort({ dateTime: -1 });
-
-    return products;
-  } catch (error) {
-    throw error;
-  }
-};
-
-exports.getLimit = async (req, reply) => {
-  try {
-    const products = await Product.find()
-      .sort({ dateTime: -1 })
-      .limit(req.body.limit);
-
+    const products = await Product.find().sort({ dateTime: -1 }).limit(10);
     return products;
   } catch (error) {
     throw error;
@@ -25,7 +11,7 @@ exports.getLimit = async (req, reply) => {
 
 exports.search = async (req, reply) => {
   try {
-    const products = await Product.find(req.body).sort({ dateTime: -1 }); //{ name: { $regex: req.body.name } }
+    const products = await Product.find(req.body).sort({ dateTime: -1 });
     return products;
   } catch (error) {
     throw error;
@@ -36,7 +22,7 @@ exports.searchName = async (req, reply) => {
   try {
     const products = await Product.find({
       name: { $regex: req.body.name },
-    }).sort({ dateTime: -1 });
+    }).sort({ dateTime: -1 }); //
     return products;
   } catch (error) {
     throw error;
