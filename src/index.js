@@ -6,7 +6,7 @@ const fastify = require("fastify")({
 
 const routes = require("./routes");
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 8000;
+//const PORT = process.env.PORT || 8000;
 
 mongoose
   .connect(
@@ -20,9 +20,9 @@ routes.forEach((route) => {
   fastify.route(route);
 });
 
-fastify.listen({ port: PORT }, function (err, address) {
-  if (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-});
+// fastify.listen({ port: PORT }, function (err, address) {
+//   if (err) {
+//     fastify.log.error(err);
+//     process.exit(1);
+//   }
+// });
