@@ -19,7 +19,7 @@ routes.forEach((route) => {
   fastify.route(route);
 });
 
-fastify.listen({ port: 3000 }, function (err, address) {
+fastify.listen({ port: process.env.PORT }, function (err, address) {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
