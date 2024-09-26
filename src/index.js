@@ -28,3 +28,8 @@ fastify.listen({ port: 3000 }, function (err, address) {
     process.exit(1);
   }
 });
+
+export default async function handler(req, res) {
+  await fastify.ready();
+  fastify.server.emit("request", req, res);
+}
