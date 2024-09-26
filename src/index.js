@@ -8,10 +8,13 @@ const routes = require("./routes");
 const mongoose = require("mongoose");
 
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://admin:7ALqepKHjOCgzs9o@cluster0.c07xxyr.mongodb.net/kps?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => console.log("MongoDB Connected!"))
   .catch((err) => console.log(err));
 
@@ -19,7 +22,7 @@ routes.forEach((route) => {
   fastify.route(route);
 });
 
-fastify.listen({ port: process.env.PORT }, function (err, address) {
+fastify.listen({ port: 3000 }, function (err, address) {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
